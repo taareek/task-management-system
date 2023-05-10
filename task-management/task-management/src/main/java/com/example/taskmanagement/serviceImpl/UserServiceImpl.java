@@ -39,7 +39,6 @@ public class UserServiceImpl implements UserService {
         userRepo.save(user);
         return user.getUserName();
     }
-
     @Override
     public LogInResponse logInUser(LogInDTO logInDTO){
         String msg= " ";

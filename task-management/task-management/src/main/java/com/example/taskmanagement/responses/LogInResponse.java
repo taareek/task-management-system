@@ -2,7 +2,6 @@ package com.example.taskmanagement.responses;
 
 public class LogInResponse {
 
-
     private String response;
     private Boolean status;
 
