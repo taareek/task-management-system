@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-user-login',
@@ -12,5 +14,25 @@ export class UserLoginComponent {
     email: ['', Validators.email],
     password: ['', Validators.required]
   });
-  constructor(private fb:FormBuilder){}
+  constructor(
+    private fb:FormBuilder,
+    private http:HttpClient,
+    private router: Router,
+    private appComponent: AppComponent
+    )
+    {}
+
+    login(){
+      this.http.post<any>("http://localhost:8090/api/user/user-login", this.logInForm.value)
+      .subscribe((resultData: any)=>{
+        console.log(resultData);
+        if(resultData.status==true){
+          console.log(resultData.response);
+          alert("Log in Successful");
+          this.logInForm.reset();
+          // this.router.navigate("user-home")
+        }
+        
+      })
+    }
 }
