@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 @RestController
 // to connect frontend
-@CrossOrigin
+@CrossOrigin(origins ={ "http://localhost:4200"})
 @RequestMapping("api/user")
 public class UserController {
     @Autowired

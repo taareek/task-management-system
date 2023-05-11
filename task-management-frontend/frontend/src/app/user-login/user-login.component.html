@@ -5,14 +5,14 @@
     <div class="text-center mt-4 name">
         Shohayok
     </div>
-    <form name="logInForm" role="form" class="p-3 mt-3" [formGroup]="logInForm">
+    <form name="logInForm" role="form" class="p-3 mt-3" [formGroup]="logInForm" (ngSubmit)="userLogin()">
         <div class="form-field d-flex align-items-center" >
-            <span class="far fa-user"></span>
+            <span class="far fa-user"><fa-icon [icon]="['far', 'user']"></fa-icon></span>
             <input type="text" class="form-control" id="email" name="email" placeholder="Enter email">
         </div>
         <div class="form-field d-flex align-items-center">
-            <span class="fas fa-key"></span>
-            <input type="password" class="form-control" name="password" id="password" placeholder="Enter password">
+            <span><fa-icon [icon]="['fas', 'key']"></fa-icon></span>
+            <input type="password" class="form-control" name="password" id="password" placeholder="*******">
         </div>
         <button class="btn mt-3">Login</button>
     </form>

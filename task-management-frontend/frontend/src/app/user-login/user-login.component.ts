@@ -22,7 +22,7 @@ export class UserLoginComponent {
     )
     {}
 
-    login(){
+    userLogin(){
       this.http.post<any>("http://localhost:8090/api/user/user-login", this.logInForm.value)
       .subscribe((resultData: any)=>{
         console.log(resultData);
@@ -30,9 +30,11 @@ export class UserLoginComponent {
           console.log(resultData.response);
           alert("Log in Successful");
           this.logInForm.reset();
-          // this.router.navigate("user-home")
-        }
-        
+          this.router.navigate(["home"])
+        }else{
+          console.log(resultData.response);
+          alert("Log in Failed!")
+        }   
       })
     }
 }

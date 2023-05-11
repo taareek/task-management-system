@@ -14,7 +14,7 @@ export class UserRegisterComponent {
   registrationForm = this.fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
-    adderess:[''],
+    address:[''],
     userName:[''],
     email:['', Validators.email],
     password: ['', Validators.required],
@@ -28,11 +28,16 @@ export class UserRegisterComponent {
     private appComponent: AppComponent
     ){}
 
-  register(){
+  userRegister(){
     this.http.post<any>("http://localhost:8090/api/user/user-registration", this.registrationForm.value)
         .subscribe((resultData: any)=>{
-          console.log(resultData)
+          console.log(resultData);
           alert("Registration Success!!");
+          this.registrationForm.reset();
+          this.router.navigate(["login"]);
+        },err=>{
+          console.log(err)
+          alert("Registration failed!!")
         }
         )
   }
