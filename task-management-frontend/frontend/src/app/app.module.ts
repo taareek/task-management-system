@@ -7,6 +7,7 @@ import { UserRegisterComponent } from './user-register/user-register.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule,FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // importing necessry font-awesome icons
 import { faFilm,faFish } from '@fortawesome/free-solid-svg-icons';
@@ -14,19 +15,23 @@ import { faFilm,faFish } from '@fortawesome/free-solid-svg-icons';
 // importing all available font-awesome icons
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
-import { fab }  from '@fortawesome/free-brands-svg-icons'
+import { fab }  from '@fortawesome/free-brands-svg-icons';
+import { UserHomeComponent } from './user-home/user-home.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     UserRegisterComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    UserHomeComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
