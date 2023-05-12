@@ -5,6 +5,7 @@ import com.example.taskmanagement.dto.UserDTO;
 import com.example.taskmanagement.entity.User;
 import com.example.taskmanagement.repo.UserRepo;
 import com.example.taskmanagement.responses.LogInResponse;
+import com.example.taskmanagement.responses.RegisterResponse;
 import com.example.taskmanagement.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,7 +25,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String addUser(UserDTO userDTO) {
+    public RegisterResponse addUser(UserDTO userDTO) {
 
         User user = new User(
                 userDTO.getId(),
@@ -37,7 +38,9 @@ public class UserServiceImpl implements UserService {
                 userDTO.getUserDesignation()
         );
         userRepo.save(user);
-        return user.getUserName();
+////        return user.getUserName();
+//        return user;
+        return new RegisterResponse("Your account has been created!", true);
     }
     @Override
     public LogInResponse logInUser(LogInDTO logInDTO){

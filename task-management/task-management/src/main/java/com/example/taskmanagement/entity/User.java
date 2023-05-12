@@ -1,7 +1,5 @@
 package com.example.taskmanagement.entity;
 
-import com.example.taskmanagement.enums.UserDesignation;
-
 import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.persistence.Table;
@@ -24,10 +22,12 @@ public class User {
     private String email;
     @Column(name = "password", nullable = false)
     private String password;
-    @Enumerated(EnumType.ORDINAL)
-    private UserDesignation userDesignation;
+//    @Enumerated(EnumType.STRING)
+//    private UserDesignation userDesignation;
+    @Column(name = "designation")
+    private String userDesignation;
 
-    public User(Long id, String firstName, String lastname, String address, String userName, String email, String password, UserDesignation userDesignation) {
+    public User(Long id, String firstName, String lastname, String address, String userName, String email, String password, String userDesignation) {
         this.id = id;
         this.firstName = firstName;
         this.lastname = lastname;
@@ -97,11 +97,11 @@ public class User {
         this.password = password;
     }
 
-    public UserDesignation getUserDesignation() {
+    public String getUserDesignation() {
         return userDesignation;
     }
 
-    public void setUserDesignation(UserDesignation userDesignation) {
+    public void setUserDesignation(String userDesignation) {
         this.userDesignation = userDesignation;
     }
 

@@ -1,11 +1,5 @@
 package com.example.taskmanagement.dto;
 
-import com.example.taskmanagement.enums.UserDesignation;
-
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-
 public class UserDTO {
     private Long id;
     private String firstName;
@@ -14,9 +8,9 @@ public class UserDTO {
     private String userName;
     private String email;
     private String password;
-    private UserDesignation userDesignation;
+    private String userDesignation;
 
-    public UserDTO(Long id, String firstName, String lastname, String address, String userName, String email, String password, UserDesignation userDesignation) {
+    public UserDTO(Long id, String firstName, String lastname, String address, String userName, String email, String password, String userDesignation) {
         this.id = id;
         this.firstName = firstName;
         this.lastname = lastname;
@@ -86,11 +80,11 @@ public class UserDTO {
         this.password = password;
     }
 
-    public UserDesignation getUserDesignation() {
+    public String getUserDesignation() {
         return userDesignation;
     }
 
-    public void setUserDesignation(UserDesignation userDesignation) {
+    public void setUserDesignation(String userDesignation) {
         this.userDesignation = userDesignation;
     }
 

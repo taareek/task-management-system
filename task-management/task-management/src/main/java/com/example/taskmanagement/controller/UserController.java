@@ -3,15 +3,11 @@ package com.example.taskmanagement.controller;
 import com.example.taskmanagement.dto.LogInDTO;
 import com.example.taskmanagement.dto.UserDTO;
 import com.example.taskmanagement.responses.LogInResponse;
+import com.example.taskmanagement.responses.RegisterResponse;
 import com.example.taskmanagement.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.LockedException;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 @RestController
 // to connect frontend
@@ -22,9 +18,9 @@ public class UserController {
     private UserService userService;
 
     @PostMapping(path="/user-registration")
-    public String saveUser(@RequestBody UserDTO userDTO){
-        String id = userService.addUser(userDTO);
-        return id;
+    public ResponseEntity<RegisterResponse> saveUser(@RequestBody UserDTO userDTO){
+        RegisterResponse registerResponse = userService.addUser(userDTO);
+        return ResponseEntity.ok(registerResponse);
     }
 
     @PostMapping(path="/user-login")
