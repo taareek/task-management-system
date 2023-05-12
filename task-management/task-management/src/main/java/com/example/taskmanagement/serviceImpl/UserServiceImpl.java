@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
         User user = new User(
                 userDTO.getId(),
                 userDTO.getFirstName(),
-                userDTO.getLastname(),
+                userDTO.getLastName(),
                 userDTO.getAddress(),
                 userDTO.getUserName(),
                 userDTO.getEmail(),

@@ -18,13 +18,17 @@ import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab }  from '@fortawesome/free-brands-svg-icons';
 import { UserHomeComponent } from './user-home/user-home.component'
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './header/header.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserRegisterComponent,
     UserLoginComponent,
-    UserHomeComponent
+    UserHomeComponent,
+    HeaderComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

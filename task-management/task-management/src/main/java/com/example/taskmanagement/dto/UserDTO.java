@@ -3,17 +3,17 @@ package com.example.taskmanagement.dto;
 public class UserDTO {
     private Long id;
     private String firstName;
-    private String lastname;
+    private String lastName;
     private String address;
     private String userName;
     private String email;
     private String password;
     private String userDesignation;
 
-    public UserDTO(Long id, String firstName, String lastname, String address, String userName, String email, String password, String userDesignation) {
+    public UserDTO(Long id, String firstName, String lastName, String address, String userName, String email, String password, String userDesignation) {
         this.id = id;
         this.firstName = firstName;
-        this.lastname = lastname;
+        this.lastName = lastName;
         this.address = address;
         this.userName = userName;
         this.email = email;
@@ -40,12 +40,12 @@ public class UserDTO {
         this.firstName = firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastname(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getAddress() {
@@ -93,7 +93,7 @@ public class UserDTO {
         return "UserDTO{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
-                ", lastname='" + lastname + '\'' +
+                ", lastname='" + lastName + '\'' +
                 ", address='" + address + '\'' +
                 ", userName='" + userName + '\'' +
                 ", email='" + email + '\'' +

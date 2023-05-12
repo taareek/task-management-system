@@ -20,7 +20,7 @@ export class UserRegisterComponent implements OnInit{
     userName:[''],
     email:[''],
     password: [''],
-    designation: ['']
+    userDesignation: ['']
   });
 
   constructor(
@@ -31,26 +31,23 @@ export class UserRegisterComponent implements OnInit{
     private appComponent: AppComponent
     ){}
 
-  // user:User = new User();
+  private userDetails :User = new User();
   ngOnInit(): void {
     
   }
   userRegister(): void{
-    
-    // this.user = this.registrationForm.value;
-    // console.log(this.registrationForm.value);
-    const user: User = this.registrationForm.value as User;
-    console.log(user);
-    this.registerService.registerUser(user).subscribe((registrationData: any) => {
+    this.userDetails = this.registrationForm.value as User;
+    console.log(this.userDetails);
+    this.registerService.registerUser(this.userDetails).subscribe((registrationData: any) => {
       console.log(registrationData);
+      if(registrationData.status){
+        alert("Registration Success!!");
+        this.registrationForm.reset();
+        this.router.navigate(["login"]);
+      }else{
+        alert("Registration Failed!!");
+      }
     });
-    // this.http.post<any>("http://localhost:8090/api/user/user-registration", this.registrationForm.value, {responseType:'json'})
-    // .subscribe((resultData: any)=>{
-    //       console.log(resultData);
-    //       alert("Registration Success!!");
-    //       this.registrationForm.reset();
-    //       this.router.navigate(["login"]);
-    //     }
-    //    )
+  
   }
 }

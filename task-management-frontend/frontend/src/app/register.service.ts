@@ -10,7 +10,7 @@ export class RegisterService {
 
   constructor(private httpClient: HttpClient) { }
   
-  public registerUser(user: Partial<User>): Observable<any>{
+  public registerUser(user: User): Observable<any>{
     const url = 'http://localhost:8090/api/user/user-registration';
     return this.httpClient.post<any>(`${url}`, user);
   }
