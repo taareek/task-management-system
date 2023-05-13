@@ -1,0 +1,71 @@
+package com.example.taskmanagement.entity;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "task_log_table")
+public class TaskLog {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @Column(name = "spent_time")
+    private Double spentTime;
+    @Column(name="log_note")
+    private String logNote;
+
+    // a task log must belong to a specific task
+    @ManyToOne
+    @JoinColumn(name = "task_log_id", nullable = false, referencedColumnName = "id")
+    private Task task;
+
+    public TaskLog() {}
+
+    public TaskLog(Long id, Double spentTime, String logNote, Task task) {
+        this.id = id;
+        this.spentTime = spentTime;
+        this.logNote = logNote;
+        this.task = task;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Double getSpentTime() {
+        return spentTime;
+    }
+
+    public void setSpentTime(Double spentTime) {
+        this.spentTime = spentTime;
+    }
+
+    public String getLogNote() {
+        return logNote;
+    }
+
+    public void setLogNote(String logNote) {
+        this.logNote = logNote;
+    }
+
+    public Task getTask() {
+        return task;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
+    }
+
+    @Override
+    public String toString() {
+        return "TaskLog{" +
+                "id=" + id +
+                ", spentTime=" + spentTime +
+                ", logNote='" + logNote + '\'' +
+                ", task=" + task +
+                '}';
+    }
+}
