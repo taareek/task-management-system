@@ -19,7 +19,7 @@ public class TaskLog {
 
     // a task log must belong to a specific task
     @ManyToOne
-    @JoinColumn(name = "task_log_id", nullable = false, referencedColumnName = "id")
+    @JoinColumn(name = "task_log_id", nullable = true, referencedColumnName = "id")
     private Task task;
 
     public TaskLog() {}

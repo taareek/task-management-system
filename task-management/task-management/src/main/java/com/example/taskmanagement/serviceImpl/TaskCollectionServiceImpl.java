@@ -13,7 +13,7 @@ import java.util.List;
 public class TaskCollectionServiceImpl implements TaskCollectionService {
 
     @Autowired
-    private TaskCollectionRepo taskCollectionRepo;
+    private final TaskCollectionRepo taskCollectionRepo;
     public TaskCollectionServiceImpl(TaskCollectionRepo taskCollectionRepo) {
         this.taskCollectionRepo = taskCollectionRepo;
     }
