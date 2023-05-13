@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="task_collection")
+@Table(name="taskCollection")
 public class TaskCollection {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,7 +13,7 @@ public class TaskCollection {
     private String taskCollectionName;
 
     // a task collection may have one or more tasks
-    @OneToMany(mappedBy = "task_collection", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "taskCollection", cascade = CascadeType.ALL)
     private List<Task> tasks;
 
     public TaskCollection() {}
