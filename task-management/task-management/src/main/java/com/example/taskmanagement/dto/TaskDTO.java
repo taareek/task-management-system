@@ -18,6 +18,7 @@ public class TaskDTO {
     private Double expectedTime;
     private TaskPriorityLevel taskPriorityLevel;
     private TaskStatus taskStatus;
+    private Boolean hasReminder;
     private TaskCollection taskCollection;
     private List<TaskLog> taskLogs;
 
@@ -25,7 +26,7 @@ public class TaskDTO {
 
     public TaskDTO(Long id, String taskName, String description, Instant createdAt, LocalDate dueDate,
                    Double expectedTime, TaskPriorityLevel taskPriorityLevel, TaskStatus taskStatus,
-                   TaskCollection taskCollection, List<TaskLog> taskLogs) {
+                   Boolean hasReminder, TaskCollection taskCollection, List<TaskLog> taskLogs) {
         this.id = id;
         this.taskName = taskName;
         this.description = description;
@@ -34,6 +35,7 @@ public class TaskDTO {
         this.expectedTime = expectedTime;
         this.taskPriorityLevel = taskPriorityLevel;
         this.taskStatus = taskStatus;
+        this.hasReminder = hasReminder;
         this.taskCollection = taskCollection;
         this.taskLogs = taskLogs;
     }
@@ -100,6 +102,14 @@ public class TaskDTO {
 
     public void setTaskStatus(TaskStatus taskStatus) {
         this.taskStatus = taskStatus;
+    }
+
+    public Boolean getHasReminder() {
+        return hasReminder;
+    }
+
+    public void setHasReminder(Boolean hasReminder) {
+        this.hasReminder = hasReminder;
     }
 
     public TaskCollection getTaskCollection() {

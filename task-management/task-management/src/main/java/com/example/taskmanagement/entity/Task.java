@@ -2,6 +2,7 @@ package com.example.taskmanagement.entity;
 
 import com.example.taskmanagement.enums.TaskPriorityLevel;
 import com.example.taskmanagement.enums.TaskStatus;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.time.*;
@@ -15,6 +16,8 @@ public class Task {
     private Long id;
     @Column(name= "task_name")
     private String taskName;
+    @Lob
+    @Type(type = "org.hibernate.type.TextType")
     @Column(name= "description")
     private String description;
     @Column(name="created_at")
@@ -23,10 +26,14 @@ public class Task {
     private LocalDate dueDate;
     @Column(name="expected_time")
     private Double expectedTime;
+    @Enumerated(EnumType.STRING)
     @Column(name="task_priority_level")
     private TaskPriorityLevel taskPriorityLevel;
+    @Enumerated(EnumType.STRING)
     @Column(name="task_status")
     private TaskStatus taskStatus;
+    @Column(name="has_reminder")
+    private Boolean hasReminder;
 
     // a task may belong to one task collection
     @ManyToOne
@@ -40,8 +47,9 @@ public class Task {
     public Task() {
     }
 
-    public Task(Long id, String taskName, String description, Instant createdAt, LocalDate dueDate, Double expectedTime,
-                TaskPriorityLevel taskPriorityLevel, TaskStatus taskStatus, TaskCollection taskCollection, List<TaskLog> taskLogs) {
+    public Task(Long id, String taskName, String description, Instant createdAt, LocalDate dueDate,
+                Double expectedTime, TaskPriorityLevel taskPriorityLevel, TaskStatus taskStatus,
+                Boolean hasReminder, TaskCollection taskCollection, List<TaskLog> taskLogs) {
         this.id = id;
         this.taskName = taskName;
         this.description = description;
@@ -50,6 +58,7 @@ public class Task {
         this.expectedTime = expectedTime;
         this.taskPriorityLevel = taskPriorityLevel;
         this.taskStatus = taskStatus;
+        this.hasReminder = hasReminder;
         this.taskCollection = taskCollection;
         this.taskLogs = taskLogs;
     }
@@ -116,6 +125,14 @@ public class Task {
 
     public void setTaskStatus(TaskStatus taskStatus) {
         this.taskStatus = taskStatus;
+    }
+
+    public Boolean getHasReminder() {
+        return hasReminder;
+    }
+
+    public void setHasReminder(Boolean hasReminder) {
+        this.hasReminder = hasReminder;
     }
 
     public TaskCollection getTaskCollection() {

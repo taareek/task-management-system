@@ -1,5 +1,7 @@
 package com.example.taskmanagement.entity;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,6 +12,8 @@ public class TaskLog {
     private Long id;
     @Column(name = "spent_time")
     private Double spentTime;
+    @Lob
+    @Type(type = "org.hibernate.type.TextType")
     @Column(name="log_note")
     private String logNote;
 
