@@ -2,7 +2,12 @@ package com.example.taskmanagement.mapper;
 
 import com.example.taskmanagement.dto.TaskLogDTO;
 import com.example.taskmanagement.entity.TaskLog;
+import org.springframework.stereotype.Component;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Component
 public class TaskLogMapper {
     public TaskLogDTO mapTaskLogEntityToDto(TaskLog taskLog){
         TaskLogDTO taskLogDTO = new TaskLogDTO();
@@ -22,5 +27,17 @@ public class TaskLogMapper {
         taskLog.setLogNote(taskLogDTO.getLogNote());
         taskLog.setTask(taskLogDTO.getTask());
         return taskLog;
+    }
+
+    public List<TaskLogDTO> mapTaskLogEntityListToTaskLogDtoList(List<TaskLog> taskLogs) {
+        return taskLogs.stream()
+                .map(this::mapTaskLogEntityToDto)
+                .collect(Collectors.toList());
+    }
+
+    public List<TaskLog> mapTaskLogDtoListToTaskLogEntity(List<TaskLogDTO> taskLogDTOS){
+        return taskLogDTOS.stream()
+                .map(this::mapTaskLogDTOtoEntity)
+                .collect(Collectors.toList());
     }
 }
