@@ -3,6 +3,7 @@ package com.example.taskmanagement.entity;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.time.Instant;
 
 @Entity
 @Table(name = "task_log_table")
@@ -17,17 +18,21 @@ public class TaskLog {
     @Column(name="log_note")
     private String logNote;
 
+    @Column(name= "log_date")
+    private Instant logDate;
+
     // a task log must belong to a specific task
     @ManyToOne
-    @JoinColumn(name = "task_log_id", nullable = true, referencedColumnName = "id")
+    @JoinColumn(name = "task_id", nullable = false, referencedColumnName = "id")
     private Task task;
 
     public TaskLog() {}
 
-    public TaskLog(Long id, Double spentTime, String logNote, Task task) {
+    public TaskLog(Long id, Double spentTime, String logNote, Instant logDate, Task task) {
         this.id = id;
         this.spentTime = spentTime;
         this.logNote = logNote;
+        this.logDate = logDate;
         this.task = task;
     }
 
@@ -63,12 +68,21 @@ public class TaskLog {
         this.task = task;
     }
 
+    public Instant getLogDate() {
+        return logDate;
+    }
+
+    public void setLogDate(Instant logDate) {
+        this.logDate = logDate;
+    }
+
     @Override
     public String toString() {
         return "TaskLog{" +
                 "id=" + id +
                 ", spentTime=" + spentTime +
                 ", logNote='" + logNote + '\'' +
+                ", logDate=" + logDate +
                 ", task=" + task +
                 '}';
     }

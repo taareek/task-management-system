@@ -2,18 +2,22 @@ package com.example.taskmanagement.dto;
 
 import com.example.taskmanagement.entity.Task;
 
+import java.time.Instant;
+
 public class TaskLogDTO {
     private Long id;
     private Double spentTime;
     private String logNote;
+    private Instant logDate;
     private Task task;
 
     public TaskLogDTO() {}
 
-    public TaskLogDTO(Long id, Double spentTime, String logNote, Task task) {
+    public TaskLogDTO(Long id, Double spentTime, String logNote, Instant logDate, Task task) {
         this.id = id;
         this.spentTime = spentTime;
         this.logNote = logNote;
+        this.logDate = logDate;
         this.task = task;
     }
 
@@ -48,6 +52,13 @@ public class TaskLogDTO {
         this.task = task;
     }
 
+    public Instant getLogDate() {
+        return logDate;
+    }
+
+    public void setLogDate(Instant logDate) {
+        this.logDate = logDate;
+    }
 
     @Override
     public String toString() {
@@ -55,6 +66,8 @@ public class TaskLogDTO {
                 "id=" + id +
                 ", spentTime=" + spentTime +
                 ", logNote='" + logNote + '\'' +
+                ", logDate=" + logDate +
+                ", task=" + task +
                 '}';
     }
 }
