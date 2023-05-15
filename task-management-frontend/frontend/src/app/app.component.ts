@@ -9,4 +9,12 @@ import { faEdit, faUserEdit } from '@fortawesome/free-solid-svg-icons';
 export class AppComponent {
   title = 'frontend';
   userEdit = faUserEdit;
+  screenWidth!:number;
+  showSideNav = true;
+  constructor(){
+    this.screenWidth = window.innerWidth;
+    window.onresize = ()=>{
+      this.screenWidth = window.innerWidth;
+    }
+  }
 }

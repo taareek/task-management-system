@@ -20,13 +20,13 @@ public class TaskDTO {
     private TaskStatus taskStatus;
     private Boolean hasReminder;
     private TaskCollection taskCollection;
-    private List<TaskLog> taskLogs;
+//    private List<TaskLog> taskLogs;
 
     public TaskDTO() {}
 
     public TaskDTO(Long id, String taskName, String description, Instant createdAt, LocalDate dueDate,
                    Double expectedTime, TaskPriorityLevel taskPriorityLevel, TaskStatus taskStatus,
-                   Boolean hasReminder, TaskCollection taskCollection, List<TaskLog> taskLogs) {
+                   Boolean hasReminder, TaskCollection taskCollection) {
         this.id = id;
         this.taskName = taskName;
         this.description = description;
@@ -37,7 +37,6 @@ public class TaskDTO {
         this.taskStatus = taskStatus;
         this.hasReminder = hasReminder;
         this.taskCollection = taskCollection;
-        this.taskLogs = taskLogs;
     }
 
     public Long getId() {
@@ -120,13 +119,13 @@ public class TaskDTO {
         this.taskCollection = taskCollection;
     }
 
-    public List<TaskLog> getTaskLogs() {
-        return taskLogs;
-    }
-
-    public void setTaskLogs(List<TaskLog> taskLogs) {
-        this.taskLogs = taskLogs;
-    }
+//    public List<TaskLog> getTaskLogs() {
+//        return taskLogs;
+//    }
+//
+//    public void setTaskLogs(List<TaskLog> taskLogs) {
+//        this.taskLogs = taskLogs;
+//    }
 
     @Override
     public String toString() {
@@ -140,7 +139,6 @@ public class TaskDTO {
                 ", taskPriorityLevel=" + taskPriorityLevel +
                 ", taskStatus=" + taskStatus +
                 ", taskCollection=" + taskCollection +
-                ", taskLogs=" + taskLogs +
                 '}';
     }
 }

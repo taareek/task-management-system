@@ -21,7 +21,6 @@ public class TaskMapper {
         taskDTO.setTaskStatus(task.getTaskStatus());
         taskDTO.setHasReminder(task.getHasReminder());
         taskDTO.setTaskCollection(task.getTaskCollection());
-        taskDTO.setTaskLogs(task.getTaskLogs());
         return taskDTO;
     }
 
@@ -37,7 +36,6 @@ public class TaskMapper {
         task.setTaskStatus(taskDTO.getTaskStatus());
         task.setHasReminder(taskDTO.getHasReminder());
         task.setTaskCollection(taskDTO.getTaskCollection());
-        task.setTaskLogs(taskDTO.getTaskLogs());
         return task;
     }
     public List<TaskDTO> mapTaskEntityListToTaskDtoList(List<Task> tasks) {

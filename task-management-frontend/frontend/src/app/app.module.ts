@@ -25,6 +25,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list'; 
 import { MatIconModule } from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar'; 
+// created components
+import { CreateTaskCollection } from './create-task-collection/create-task-collecton.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,8 @@ import { MatIconModule } from '@angular/material/icon';
     UserLoginComponent,
     UserHomeComponent,
     HeaderComponent,
-    NavbarComponent
+    NavbarComponent,
+    CreateTaskCollection,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,8 @@ import { MatIconModule } from '@angular/material/icon';
     BrowserAnimationsModule,
     MatSidenavModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -16,8 +16,8 @@ public class TaskCollectionController {
     private TaskCollectionService taskCollectionService;
 
     @PostMapping(path= "/create")
-    public TaskCollection createTaskCollection(@RequestBody TaskCollectionDTO taskCollectionDTO){
-        TaskCollection taskCollection = taskCollectionService.addTaskCollection(taskCollectionDTO);
+    public TaskCollectionDTO createTaskCollection(@RequestBody TaskCollectionDTO taskCollectionDTO){
+        TaskCollectionDTO taskCollection = taskCollectionService.addTaskCollection(taskCollectionDTO);
         return taskCollection;
     }
 

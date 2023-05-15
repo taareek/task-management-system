@@ -6,7 +6,7 @@ import com.example.taskmanagement.entity.TaskCollection;
 import java.util.List;
 
 public interface TaskCollectionService {
-    TaskCollection addTaskCollection(TaskCollectionDTO taskCollectionDTO);
+    TaskCollectionDTO addTaskCollection(TaskCollectionDTO taskCollectionDTO);
 
     List<TaskCollection> getAllTaskCollection();
     void deleteTaskCollection(long id);

@@ -9,7 +9,7 @@ import { AppComponent } from '../app.component';
   templateUrl: './user-login.component.html',
   styleUrls: ['./user-login.component.scss']
 })
-export class UserLoginComponent {
+export class UserLoginComponent implements OnInit {
   logInForm = this.fb.group({
     email: ['', Validators.email],
     password: ['', Validators.required]
@@ -21,7 +21,9 @@ export class UserLoginComponent {
     private appComponent: AppComponent
     )
     {}
-
+ngOnInit(): void {
+  this.appComponent.showSideNav = false;
+}
     userLogin(){
       this.http.post<any>("http://localhost:8090/api/user/user-login", this.logInForm.value)
       .subscribe((resultData: any)=>{

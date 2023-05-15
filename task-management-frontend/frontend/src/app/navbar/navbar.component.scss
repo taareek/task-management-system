@@ -1,8 +1,10 @@
 .side-nav{
     background-color: #0C134F;
-    width: 240px;
+    height: 88%;
     padding:15px;
     color:white;
+    width: 240px;
+    margin-top: 10px;
 }
 
 .title-font{
@@ -52,4 +54,21 @@
 .icon-color{
     color: white;
     padding-right: 5px;
+}
+
+// mat-toolbar designing 
+mat-toolbar{
+    background-color: #0C134F;
+    color: white;
+    opacity: 0.98;
+    box-shadow: -5px, 9px, 12px, -9px, rgba(0,0,0,0.75);
+}
+
+.large-spacer{
+    flex: 1 1 auto;
+}
+mat-sidenav-container{
+    height: 100%;
+    padding: 10px;
+    box-shadow: -5px, 9px, 12px, -9px, rgba(0,0,0,0.75);
 }

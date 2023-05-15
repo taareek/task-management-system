@@ -54,7 +54,6 @@ public class TaskServiceImpl implements TaskService {
         providedTask.setHasReminder(taskDTO.getHasReminder());
         providedTask.setTaskStatus(taskDTO.getTaskStatus());
         providedTask.setTaskCollection(taskDTO.getTaskCollection());
-        providedTask.setTaskLogs(taskDTO.getTaskLogs());
 
         Task updatedTask = taskRepo.save(providedTask);
         return taskMapper.mapTaskEntityToDto(updatedTask);
