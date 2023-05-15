@@ -16,10 +16,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception{
-        http.cors().and().csrf().disable()
-                .authorizeRequests().antMatchers("/api/user/user-registration/**", "/api/user/user-login"
-                , "/api/task-collection/**", "/api/tasks/**")
-                .permitAll().anyRequest().authenticated();
+        http.cors().and().csrf().disable().authorizeRequests().antMatchers("/").permitAll();
+
+//        http.cors().and().csrf().disable()
+//                .authorizeRequests().antMatchers("/api/user/user-registration/**", "/api/user/user-login"
+//                , "/api/task-collection/**", "/api/tasks/**")
+//                .permitAll().anyRequest().authenticated();
 //                .and()
 //                .formLogin().loginPage("/login")
 //                .permitAll()

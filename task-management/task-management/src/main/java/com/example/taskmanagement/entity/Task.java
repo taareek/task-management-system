@@ -2,6 +2,7 @@ package com.example.taskmanagement.entity;
 
 import com.example.taskmanagement.enums.TaskPriorityLevel;
 import com.example.taskmanagement.enums.TaskStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -41,6 +42,7 @@ public class Task {
     private TaskCollection taskCollection;
 
     // a task will have one to many logs that will be presenting the history of a specific task
+    @JsonIgnore
     @OneToMany(mappedBy = "task", cascade = CascadeType.ALL)
     private List<TaskLog> taskLogs;
 

@@ -1,1 +1,43 @@
-<p>navbar works!</p>
+<mat-sidenav-container fullscreen>
+<mat-sidenav class="side-nav" mode="side" opened position="start">
+<div class="container title-font">
+    <span>TO-DO <fa-icon [icon]="['fas', 'user-edit']"></fa-icon></span>
+</div>
+<hr>
+<div class="side-nav-link">
+<mat-nav-list class="mat-list">
+    <mat-list-item class="mat-list-hover">
+        <span class="nav-text icon-padding"> <fa-icon [icon]="['far', 'sun']"></fa-icon> My Day</span>
+    </mat-list-item>
+    <mat-list-item class="mat-list-hover">
+        <span class="icon-color nav-text"><mat-icon>expand_less</mat-icon>
+            High Priority
+        </span>
+    </mat-list-item>
+    <mat-list-item class="mat-list-hover">
+        <span class="icon-color nav-text"><mat-icon>arrow_upward</mat-icon>
+            Medium Priority
+        </span>
+        
+    </mat-list-item >
+    <mat-list-item class="mat-list-hover">
+        <span class="nav-text icon-padding"><fa-icon [icon]="['fas', 'angle-double-down']"></fa-icon> Low Priority</span>
+    </mat-list-item>
+    <mat-list-item class="mat-list-hover ">
+        <span class="nav-text icon-padding"><fa-icon [icon]="['fas', 'home']"></fa-icon> Tasks</span>
+    </mat-list-item>
+    <mat-list-item class="mat-list-hover">
+        <span class="nav-text icon-padding"><fa-icon [icon]="['fas', 'bars']"></fa-icon> Task Collections</span>
+    </mat-list-item>
+</mat-nav-list>
+<mat-nav-list class="list-position sign-out">
+    <mat-list-item>
+    <span class="nav-text"><fa-icon [icon]="['fas', 'reply-all']"></fa-icon> Sign Out</span>
+    </mat-list-item>
+</mat-nav-list>
+</div>
+</mat-sidenav>
+<mat-sidenav-content>
+    main content
+</mat-sidenav-content>
+</mat-sidenav-container>

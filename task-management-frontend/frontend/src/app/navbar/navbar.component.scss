@@ -1,0 +1,55 @@
+.side-nav{
+    background-color: #0C134F;
+    width: 240px;
+    padding:15px;
+    color:white;
+}
+
+.title-font{
+    font-size: 24px;
+    font-weight: 550;
+    text-align: center;
+}
+
+.nav-text{
+    color: white;
+    // padding: 15px;
+}
+
+.icon-padding{
+    padding-right: 15px;
+}
+
+.mat-list{
+    padding-top:50px;
+}
+
+.mat-list-hover:hover{
+    opacity: 1;
+    background-color: #9398bed3;
+}
+
+.list-position{
+    bottom: 0;
+    position: absolute;
+    width:88%;
+    padding-bottom: 5px;
+}
+
+.sign-out{
+    background-color: #D21312;
+    
+}
+
+.mat-drawer-content{
+    overflow: hidden;
+}
+
+.side-nav-link{
+    overflow: hidden;
+}
+
+.icon-color{
+    color: white;
+    padding-right: 5px;
+}
