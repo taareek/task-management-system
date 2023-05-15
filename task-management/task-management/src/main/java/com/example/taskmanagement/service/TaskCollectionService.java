@@ -8,7 +8,7 @@ import java.util.List;
 public interface TaskCollectionService {
     TaskCollectionDTO addTaskCollection(TaskCollectionDTO taskCollectionDTO);
 
-    List<TaskCollection> getAllTaskCollection();
+    List<TaskCollectionDTO> getAllTaskCollection();
     void deleteTaskCollection(long id);
     TaskCollection updateTaskCollection(TaskCollection taskCollection);
     TaskCollection searchTaskCollectionById(long id);

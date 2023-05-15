@@ -1,7 +1,7 @@
-<div class="form-bg">
+<div class="form-bg cont-margin">
     <div class="container">
         <div class="row">
-            <div class="col-md-offset-3 col-md-6 justify-content-center">
+            <div class=" justify-content-center">
                 <div class="form-container">
                     <h3 class="title">Register</h3>
                     <form class="form-horizontal" name="registrationForm" [formGroup]="registrationForm" (ngSubmit)="userRegister()">
@@ -36,7 +36,7 @@
                             <input type="text" class="form-control" name="userDesignation" id="userDesignation" formControlName="userDesignation" placeholder="Enter Designation">
                         </div>
             
-                        <span class="signin-link">Already have an account? Click here to <a href="">Login</a></span>
+                        <span class="signin-link">Already have an account? Click here to <a routerLink="/login">Login</a></span>
                         <button class="btn signup">Create Account</button>
                     </form>
                 </div>

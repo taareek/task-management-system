@@ -21,8 +21,14 @@ public class TaskCollectionController {
         return taskCollection;
     }
 
+    @PostMapping(path="create/{id}")
+    public TaskCollectionDTO createTaskCollectionById(@RequestBody TaskCollectionDTO taskCollectionDTO, @PathVariable("id") long id){
+        TaskCollectionDTO taskCollection = taskCollectionService.addTaskCollection(taskCollectionDTO);
+        return taskCollection;
+    }
+
     @GetMapping(path = "/all-task_collections")
-    public List<TaskCollection> getAllTaskCollection(){
+    public List<TaskCollectionDTO> getAllTaskCollection(){
         return taskCollectionService.getAllTaskCollection();
     }
 

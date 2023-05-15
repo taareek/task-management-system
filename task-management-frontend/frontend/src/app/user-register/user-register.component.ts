@@ -33,7 +33,7 @@ export class UserRegisterComponent implements OnInit{
 
   private userDetails :User = new User();
   ngOnInit(): void {
-    this.appComponent.showSideNav = true;
+    this.appComponent.showSideNav = false;
   }
   userRegister(): void{
     this.userDetails = this.registrationForm.value as User;

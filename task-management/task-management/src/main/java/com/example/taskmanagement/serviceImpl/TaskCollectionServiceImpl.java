@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TaskCollectionServiceImpl implements TaskCollectionService {
@@ -30,8 +31,19 @@ public class TaskCollectionServiceImpl implements TaskCollectionService {
     }
 
     @Override
-    public List<TaskCollection> getAllTaskCollection(){
-        return taskCollectionRepo.findAll();
+    public List<TaskCollectionDTO> getAllTaskCollection(){
+        List<TaskCollection> taskCollections = taskCollectionRepo.findAll();
+        return taskCollections.stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+    }
+
+    private TaskCollectionDTO convertToDTO(TaskCollection taskCollection) {
+        TaskCollectionDTO dto = new TaskCollectionDTO();
+        dto.setId(taskCollection.getId());
+        dto.setTaskCollectionName(taskCollection.getTaskCollectionName());
+        // Set other properties as needed
+        return dto;
     }
 
     @Override

@@ -21,12 +21,12 @@ const routes: Routes = [
   {
     path: 'create-task',
     component: CreateTaskCollection
+  },
+  {
+    path: '', 
+    redirectTo: 'login', 
+    pathMatch: 'full',
   }
-  // {
-  //   path: '', 
-  //   redirectTo: 'home', 
-  //   pathMatch: 'full'
-  // }
 ];
 
 @NgModule({
