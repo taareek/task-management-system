@@ -1,10 +1,10 @@
 <div class="container mt-5">
     <div class="row">
         <h1>Create a new Task Collection</h1>
-        <form>
+        <form name="createTaskForm" [formGroup]="createTaskForm" (ngSubmit)="createTask()">
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Enter task collection name</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="text" class="form-control" name="taskCollectionName" id="taskCollectionName" formControlName="taskCollectionName" >
             </div>         
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>

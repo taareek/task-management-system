@@ -28,6 +28,7 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 // created components
 import { CreateTaskCollection } from './create-task-collection/create-task-collecton.component';
+import { TaskCollectionComponent } from './task-collection/task-collection.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { CreateTaskCollection } from './create-task-collection/create-task-colle
     HeaderComponent,
     NavbarComponent,
     CreateTaskCollection,
+    TaskCollectionComponent,
   ],
   imports: [
     BrowserModule,
