@@ -1,1 +1,55 @@
-<p>creat-task works!</p>
+<div class="container container-pad-top">
+    
+    <div style="padding: 100px; border-radius: 10px; background-color: rgb(221, 239, 240);">
+        <div class="row">
+            <div class="col-12">
+                <h1>Create a Task</h1>
+            <form name="createTaskForm" [formGroup]="createTaskForm" (ngSubmit)="createTask()">
+                <div class="mb-3">
+                    <label class="form-label">Enter task name</label>
+                    <input type="text" class="form-control" name="taskName" id="taskName" formControlName="taskName" >
+                </div> 
+                <div class="mb-3">
+                    <label class="form-label">Enter your task description</label>
+                    <input type="text" class="form-control" name="description" id="description" formControlName="description" >
+                </div> 
+                <div class="mb-3">
+                    <label class="form-label">Enter due date</label>
+                    <input type="text" class="form-control" name="dueDate" id="dueDate" formControlName="dueDate" >
+                </div> 
+                <div class="mb-3">
+                    <label class="form-label">Enter expected time (in hours)</label>
+                    <input type="text" class="form-control" name="expectedTime" id="expectedTime" formControlName="expectedTime" >
+                </div> 
+    
+                <div class="mb-3">
+                    <label class="form-label">Select task priority level</label>
+                    <select class="form-select form-control" formControlName="taskPriorityLevel" id="taskPriorityLevel" name="taskPriorityLevel"> 
+                        <option selected disabled >Priority...</option>
+                        <option value="HIGH">High</option>
+                        <option value="MEDIUM">Medium</option>
+                        <option value="LOW">Low</option> 
+                    </select>
+                </div> 
+    
+                <div class="mb-3">
+                    <label class="form-label">Select task status</label>
+                    <select class="form-select form-control" formControlName="taskStatus" id="taskStatus" name="taskStatus"> 
+                        <option selected disabled >Task Status...</option>
+                        <option value="OPEN">Open</option>
+                        <option value="WORKING">Working</option>
+                        <option value="COMPLETED">Completed</option> 
+                    </select>
+                </div> 
+                
+                <div class="mb-3">
+                    <label class="form-label">Select task collection ID</label>
+                    <input type="number" class="form-control" name="taskCollection" id="taskCollection" formControlName="taskCollection" >
+                </div> 
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            </div>
+        </div>
+    </div>
+    
+</div>

@@ -4,6 +4,7 @@ import { UserRegisterComponent } from './user-register/user-register.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { CreateTaskCollection } from './create-task-collection/create-task-collecton.component';
+import { CreatTaskComponent } from './creat-task/creat-task.component';
 
 const routes: Routes = [
   {
@@ -19,8 +20,12 @@ const routes: Routes = [
     component: UserHomeComponent
   },
   {
-    path: 'create-task',
+    path: 'create-task-collection',
     component: CreateTaskCollection
+  },
+  {
+    path:'create-task',
+    component: CreatTaskComponent
   },
   {
     path: '', 
