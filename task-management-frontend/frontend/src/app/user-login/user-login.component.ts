@@ -10,10 +10,12 @@ import { AppComponent } from '../app.component';
   styleUrls: ['./user-login.component.scss']
 })
 export class UserLoginComponent implements OnInit {
+  
   logInForm = this.fb.group({
     email: ['', Validators.email],
     password: ['', Validators.required]
   });
+
   constructor(
     private fb:FormBuilder,
     private http:HttpClient,
