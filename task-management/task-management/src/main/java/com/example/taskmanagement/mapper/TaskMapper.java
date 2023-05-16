@@ -4,6 +4,7 @@ import com.example.taskmanagement.dto.TaskDTO;
 import com.example.taskmanagement.entity.Task;
 import org.springframework.stereotype.Component;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,7 +15,7 @@ public class TaskMapper {
         taskDTO.setId(task.getId());
         taskDTO.setTaskName(task.getTaskName());
         taskDTO.setDescription(task.getDescription());
-        taskDTO.setCreatedAt(task.getCreatedAt());
+        taskDTO.setCreatedAt(Instant.now());
         taskDTO.setDueDate(task.getDueDate());
         taskDTO.setExpectedTime(task.getExpectedTime());
         taskDTO.setTaskPriorityLevel(task.getTaskPriorityLevel());
@@ -29,7 +30,7 @@ public class TaskMapper {
         task.setId(taskDTO.getId());
         task.setTaskName(taskDTO.getTaskName());
         task.setDescription(taskDTO.getDescription());
-        task.setCreatedAt(taskDTO.getCreatedAt());
+        task.setCreatedAt(Instant.now());
         task.setDueDate(taskDTO.getDueDate());
         task.setExpectedTime(taskDTO.getExpectedTime());
         task.setTaskPriorityLevel(taskDTO.getTaskPriorityLevel());
