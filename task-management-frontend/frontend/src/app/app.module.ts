@@ -29,6 +29,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 // created components
 import { CreateTaskCollection } from './create-task-collection/create-task-collecton.component';
 import { TaskCollectionComponent } from './task-collection/task-collection.component';
+import { CreatTaskComponent } from './creat-task/creat-task.component';
+import { CreateTaskLogComponent } from './create-task-log/create-task-log.component';
+import { ViewTasksComponent } from './view-tasks/view-tasks.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,9 @@ import { TaskCollectionComponent } from './task-collection/task-collection.compo
     NavbarComponent,
     CreateTaskCollection,
     TaskCollectionComponent,
+    CreatTaskComponent,
+    CreateTaskLogComponent,
+    ViewTasksComponent,
   ],
   imports: [
     BrowserModule,
