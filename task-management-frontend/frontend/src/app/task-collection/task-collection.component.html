@@ -1,1 +1,57 @@
-<p>task-collection works!</p>
+<div class="container mt-4">
+    <!-- page header -->
+    <div class="row header-card">
+    <div class="card w-100">
+        <div class="card-body">
+            <h2 class="card-title">Task Collections</h2>
+            <hr>
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group" role="group" aria-label="First group">
+                  <button type="button" class="btn btn-primary">
+                    <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+                    task collection
+                  </button>
+                  
+                </div>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="task collection"> 
+                    <span class="input-group-btn input-space">
+                        <button class="btn btn-secondary" type="button">
+                            <fa-icon [icon]="['fas', 'search']"></fa-icon>
+                            search
+                        </button>
+                   </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- page header end -->
+    <!-- table start -->
+    <div class="row table-design mt-5">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">No. of tasks</th>
+                      <th scope="col">Actions</th>
+                    </tr>
+                  </thead>
+                <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>
+                        <span class="tbl-btn-space"><button class="button-solid"><fa-icon [icon]="['fas', 'eye']"></fa-icon></button></span>
+                        <span class="tbl-btn-space"><button class="button-solid"><fa-icon [icon]="['fas', 'pen']"></fa-icon></button></span>
+                        <span class="tbl-btn-space"><button class="button-solid"><fa-icon [icon]="['fas', 'trash']"></fa-icon></button></span>
+                      </td>
+                    </tr>
+                </tbody>
+            </table>
+          </div>
+    </div>
+</div>
