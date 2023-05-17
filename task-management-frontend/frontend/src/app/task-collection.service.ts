@@ -20,4 +20,7 @@ export class TaskCollectionService {
   public getAllTask(): Observable<TaskCollection[]>{
     return this.httpClient.get<TaskCollection[]>(`${this.baseUrlGet}`);
   }
+
+  // update a task collction
+  // delete a task collection
 }

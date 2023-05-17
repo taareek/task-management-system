@@ -7,7 +7,7 @@
             <hr>
             <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
                 <div class="btn-group" role="group" aria-label="First group">
-                  <button type="button" class="btn btn-primary">
+                  <button type="button" class="btn btn-primary" (click)="addTaskCollection();" >
                     <fa-icon [icon]="['fas', 'plus']"></fa-icon>
                     task collection
                   </button>
@@ -40,14 +40,14 @@
                     </tr>
                   </thead>
                 <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
+                    <tr *ngFor="let taskCollection of allTaskCollection">
+                      <th scope="row"><span>{{taskCollection.id}}</span></th>
+                      <td><span>{{taskCollection.taskCollectionName}}</span></td>
+                      <td><span>TBA</span></td>
                       <td>
-                        <span class="tbl-btn-space"><button class="button-solid"><fa-icon [icon]="['fas', 'eye']"></fa-icon></button></span>
-                        <span class="tbl-btn-space"><button class="button-solid"><fa-icon [icon]="['fas', 'pen']"></fa-icon></button></span>
-                        <span class="tbl-btn-space"><button class="button-solid"><fa-icon [icon]="['fas', 'trash']"></fa-icon></button></span>
+                        <span class="tbl-btn-space"><button class="button-solid view-icon"><fa-icon [icon]="['fas', 'eye']"></fa-icon></button></span>
+                        <span class="tbl-btn-space"><button class="button-solid edit-icon"><fa-icon [icon]="['fas', 'pen']"></fa-icon></button></span>
+                        <span class="tbl-btn-space"><button class="button-solid delete-icon"><fa-icon [icon]="['fas', 'trash']"></fa-icon></button></span>
                       </td>
                     </tr>
                 </tbody>

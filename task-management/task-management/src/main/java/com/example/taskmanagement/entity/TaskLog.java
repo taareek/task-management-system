@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.time.Instant;
 
 @Entity
-@Table(name = "task_log_table")
+@Table(name = "task_log_table_3")
 public class TaskLog {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,7 +23,7 @@ public class TaskLog {
 
     // a task log must belong to a specific task
     @ManyToOne
-    @JoinColumn(name = "task_log_id", nullable = false, referencedColumnName = "id")
+    @JoinColumn(name = "task_id", nullable = false, referencedColumnName = "id")
     private Task task;
 
     public TaskLog() {}

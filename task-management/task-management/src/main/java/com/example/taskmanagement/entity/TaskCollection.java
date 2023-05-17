@@ -1,5 +1,7 @@
 package com.example.taskmanagement.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,6 +15,7 @@ public class TaskCollection {
     private String taskCollectionName;
 
     // a task collection may have one or more tasks
+    @JsonIgnore
     @OneToMany(mappedBy = "taskCollection", cascade = CascadeType.ALL)
     private List<Task> tasks;
 

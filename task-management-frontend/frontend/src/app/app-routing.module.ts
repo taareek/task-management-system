@@ -6,8 +6,9 @@ import { UserHomeComponent } from './user-home/user-home.component';
 import { CreateTaskCollection } from './create-task-collection/create-task-collecton.component';
 import { CreatTaskComponent } from './creat-task/creat-task.component';
 import { CreateTaskLogComponent } from './create-task-log/create-task-log.component';
-import { TaskCollection } from './task-collection';
 import { TaskCollectionComponent } from './task-collection/task-collection.component';
+import { ViewTasksComponent } from './view-tasks/view-tasks.component';
+
 
 const routes: Routes = [
   {path: 'registration', component: UserRegisterComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   },
   {path: 'create-task-log', component: CreateTaskLogComponent},
   {path: 'task-collection', component:TaskCollectionComponent},
+  {path: 'view-tasks', component:ViewTasksComponent}
 ];
 
 @NgModule({

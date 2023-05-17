@@ -38,20 +38,17 @@ import { TaskCollectionService } from '../task-collection.service';
     
 
     createTask(){
-      console.log(this.createTaskForm.value);
+      // console.log(this.createTaskForm.value);
       this.taskCollection = this.createTaskForm.value as TaskCollection;
-      console.log(this.taskCollection);
+      // console.log(this.taskCollection);
       const createTaskFormData = this.createTaskForm.value;
       if(createTaskFormData.taskCollectionName === ""){
         alert("Task collection must have a name!")
       }else{
         this.taskCollectionService.createTaskCollection(this.taskCollection).subscribe(
           (taskCollectionData: any)=>{
-            if(taskCollectionData.status){
-              alert("Task Collection Created!!");
-              this.createTaskForm.reset();
-              //this.router.navigate(["login"]) routed to be task collection page;
-            }
+            this.createTaskForm.reset();
+            this.router.navigate(["task-collection"]);
           }
         );
       }

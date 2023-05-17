@@ -13,4 +13,12 @@ export class TaskService {
   public createTask(task?: Task): Observable<any>{
     return this.httpClient.post<any>(`${this.postUrl}`, task);
   }
+
+  // get all tasks
+  getUrl = "http://localhost:8090/api/tasks/all-tasks";
+  public getAlltasks():Observable<Task[]>{
+    return this.httpClient.get<Task[]>(`${this.getUrl}`);
+  }
+
+
 }
