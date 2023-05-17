@@ -2,6 +2,7 @@ package com.example.taskmanagement.entity;
 
 import com.example.taskmanagement.enums.TaskPriorityLevel;
 import com.example.taskmanagement.enums.TaskStatus;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Type;
 
@@ -24,6 +25,7 @@ public class Task {
     @Column(name="created_at")
     private Instant createdAt;
     @Column(name="due_date")
+    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dueDate;
     @Column(name="expected_time")
     private Double expectedTime;

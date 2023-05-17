@@ -8,6 +8,9 @@ import { Task } from '../task';
 // import { taskStatus } from '../enums/task-status.model';
 import { TaskCollection } from '../task-collection';
 import { TaskService } from '../task.service';
+import { getLocaleDateFormat } from '@angular/common';
+
+
 
 @Component({
   selector: 'app-creat-task',
@@ -38,7 +41,8 @@ export class CreatTaskComponent implements OnInit{
       private http:HttpClient,
       private router: Router,
       private appComponent: AppComponent,
-      private taskService: TaskService
+      private taskService: TaskService,
+      
   ){}
   // trying to pass drop-down list values as enums
   // public TaskPriorityLevelToLabel = TaskPriorityLevelToLabel;
@@ -62,8 +66,9 @@ export class CreatTaskComponent implements OnInit{
     }else{
       this.taskService.createTask(this.task).subscribe(
         (taskData: any)=>{
-          alert("Task created");
+          // alert("Task created");
           this.createTaskForm.reset();
+          this.router.navigate(["view-tasks"]);
         }
       );
     }

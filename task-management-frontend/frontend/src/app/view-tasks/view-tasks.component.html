@@ -8,14 +8,14 @@
 
                 <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
                     <div class="btn-group" role="group" aria-label="First group">
-                      <button type="button" class="btn btn-primary">
+                      <button type="button" class="btn btn-primary" (click)="addTask();">
                         <fa-icon [icon]="['fas', 'plus']"></fa-icon>
                         task
                       </button>
                     </div>
 
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="task collection"> 
+                        <input type="text" class="form-control" placeholder="tasks..."> 
                         <span class="input-group-btn input-space">
                             <button class="btn btn-secondary" type="button">
                                 <fa-icon [icon]="['fas', 'search']"></fa-icon>
@@ -31,14 +31,14 @@
     <!-- page header end -->
 
     <!-- single task design -->
-    <div class="row">
+    <div class="row" >
         <div class="card w-100 mt-5">
             <!-- full card-body -->
             <div class="card-body">
                 <!-- card-title with  -->
                 <div class="row card-title">
                     <div class="col-8">
-                        <h2 class="card-title">This is a dummy task</h2>
+                        <h2 class="card-title">This is dummy card</h2>
                         <span><fa-icon [icon]="['fas', 'arrow-circle-up']"></fa-icon></span>
                         <span><fa-icon [icon]="['fas', 'arrow-circle-right']"></fa-icon></span>
                         <span><fa-icon [icon]="['fas', 'check-circle']"></fa-icon><i>OPEN</i></span>
@@ -50,20 +50,71 @@
                 </div>
                 <!-- other information -->
                 <div class="row">
-                    <h4 class="card-text">
-                    This is the description of the created task, there will be some specific information
-                    about the task, i.e, objective
-                    </h4> 
-                    <footer class="blockquote-footer"><cite title="Created at">
-                        Created at: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        Deadline: 
-                    </cite></footer>      
+                    <div class="col-10">
+                        <h4 class="card-text">
+                            This is the description of the created task, there will be some specific information
+                            about the task, i.e, objective
+                            </h4> 
+                            <footer class="blockquote-footer"><cite title="Created at">
+                                Created at: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Deadline: 
+                            </cite></footer> 
+                    </div> 
+                    <div class="col-2 text-end">
+                        <button class="btn btn-secondary" type="button">
+                            <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+                            Task log
+                        </button>
+                    </div>    
                 </div>
                 <button> view details<fa-icon [icon]="['fas', 'arrow-right']"></fa-icon> </button>
             </div>
         </div>
     </div>
     <!-- for real data -->
+    <div class="row" *ngFor="let task of allTasks">
+        <div class="card w-100 mt-2" >
+            <!-- full card-body -->
+            <div class="card-body">
+                <!-- card-title with  -->
+                <div class="row card-title">
+                    <div class="col-8" [ngSwitch]="task.taskStatus">
+                        <h2 class="card-title">{{task.taskName}}</h2>
+                            <span *ngSwitchCase="'OPEN'" ><fa-icon [icon]="['fas', 'circle-notch']"></fa-icon><i>{{task.taskStatus}}</i></span>
+                            <span *ngSwitchCase="'WORKING'" ><fa-icon [icon]="['fas', 'arrow-circle-up']"></fa-icon><i>{{task.taskStatus}}</i></span>
+                            <span *ngSwitchCase="'COMPLETED'" ><fa-icon [icon]="['fas', 'check-circle']"></fa-icon><i>{{task.taskStatus}}</i></span>
+                    </div>
+                    <div class="col-4 text-end" [ngSwitch]="task.taskPriorityLevel">
+                        <h2 class="card-title" *ngSwitchCase="'HIGH'"><fa-icon [icon]="['fas', 'angle-double-up']"></fa-icon> {{task.taskPriorityLevel}} </h2>
+                        <h2 class="card-title" *ngSwitchCase="'MEDIUM'"><fa-icon [icon]="['fas', 'dot-circle']"></fa-icon> {{task.taskPriorityLevel}} </h2>
+                        <h2 class="card-title" *ngSwitchCase="'LOW'"><fa-icon [icon]="['fas', 'angle-double-down']"></fa-icon> {{task.taskPriorityLevel}} </h2>
+                        <h4>progress</h4>
+                    </div>
+                </div>
+                <!-- other information -->
+                <div class="row">
+                    <div class="col-10">
+                        <h4 class="card-text">
+                            {{task.description}}
+                            </h4> 
+                            <footer class="blockquote-footer"><cite title="Created at">
+                                Created at: {{task.createdAt}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Deadline: {{task.dueDate}}
+                            </cite></footer> 
+                    </div> 
+                    <div class="col-2 text-end">
+                        <button class="btn btn-secondary" type="button">
+                            <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+                            Task log
+                        </button>
+                    </div>    
+                </div>
+                <button> view details<fa-icon [icon]="['fas', 'arrow-right']"></fa-icon> </button>
+            </div>
+        </div>
+    </div>
+
 
 </div>

@@ -32,7 +32,11 @@ export class ViewTasksComponent implements OnInit{
     this.taskService.getAlltasks().subscribe(
       (allTasksData: any)=>{
         console.log(allTasksData);
+        this.allTasks = allTasksData;
       }
     )
+  }
+  addTask(){
+    this.router.navigate(["create-task"]);
   }
 }
