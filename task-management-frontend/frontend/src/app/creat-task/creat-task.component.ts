@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
 import { TaskPriorityLevel, TaskPriorityLevelToLabel } from '../enums/task-priority.model';
 import { Task } from '../task';
-import { taskStatus } from '../enums/task-status.model';
+// import { taskStatus } from '../enums/task-status.model';
 import { TaskCollection } from '../task-collection';
 import { TaskService } from '../task.service';
 
@@ -18,15 +18,19 @@ export class CreatTaskComponent implements OnInit{
 
   createTaskForm = this.fb.group({
     id:[],
-    taskName:['', Validators.required],
+    taskName:[''],
     description:[],
     createdAt:[],
-    dueDate: [ Validators.required],
-    expectedTime:[ Validators.required],
+    dueDate: [ ],
+    expectedTime:[],
     taskPriorityLevel:[],
     taskStatus:[],
     hasReminder:[],
-    taskCollection:[]
+    taskCollection: this.fb.group({
+      id:[],
+      taskCollectionName:[]
+    }
+    ),
   })
 
   constructor(
@@ -36,6 +40,7 @@ export class CreatTaskComponent implements OnInit{
       private appComponent: AppComponent,
       private taskService: TaskService
   ){}
+  // trying to pass drop-down list values as enums
   // public TaskPriorityLevelToLabel = TaskPriorityLevelToLabel;
   // public priorityLabels = Object.values(TaskPriorityLevel);
   // priorityLevels: TaskPriorityLevel[] = [];
@@ -50,20 +55,6 @@ export class CreatTaskComponent implements OnInit{
 
   createTask(){
     console.log(this.createTaskForm.value);
-
-    // let request = {
-    //   id: this.createTaskForm.value.id,
-    //   taskName: this.createTaskForm.value.taskName,
-    //   description: this.createTaskForm.value.description,
-    //   createdAt: this.createTaskForm.value.createdAt,
-    //   dueDate: this.createTaskForm.value.dueDate,
-    //   expectedTime: this.createTaskForm.value.expectedTime,
-    //   taskPriorityLevel: this.createTaskForm.value.taskPriorityLevel,
-    //   taskStatus: this.createTaskForm.value.taskStatus,
-    //   hasReminder: this.createTaskForm.value.hasReminder,
-    //   taskCollection: parseInt(this.createTaskForm.get('taskCollection')?.value) , value.taskCollection
-    // };
-
     this.task = this.createTaskForm.value as unknown as Task;
     console.log(this.task);
     if(this.createTaskForm.value.taskName === ""){

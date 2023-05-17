@@ -1,16 +1,16 @@
 import { TaskPriorityLevel } from "./enums/task-priority.model";
-import { taskStatus } from "./enums/task-status.model";
+// import { taskStatus } from "./enums/task-status.model";
 import { TaskCollection } from "./task-collection";
 
 export class Task {
-    id!: number;
+    id!: string;
     taskName!: string;
     description!: string;
-    createdAt!: Date;
-    dueDate!: Date;
-    expectedTime!: Number;
-    taskPriorityLevel!: TaskPriorityLevel;
-    taskStatus!: taskStatus;
-    hasReminder!: Boolean;
+    createdAt!: string;
+    dueDate!: string;
+    expectedTime!: string;
+    taskPriorityLevel!: string;
+    taskStatus!: string
+    hasReminder!: string;
     taskCollection!: TaskCollection;
 }

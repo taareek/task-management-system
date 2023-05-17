@@ -5,6 +5,7 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { CreateTaskCollection } from './create-task-collection/create-task-collecton.component';
 import { CreatTaskComponent } from './creat-task/creat-task.component';
+import { CreateTaskLogComponent } from './create-task-log/create-task-log.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
     path: '', 
     redirectTo: 'login', 
     pathMatch: 'full',
+  },
+  {
+    path: 'create-task-log',
+    component: CreateTaskLogComponent
   }
 ];
 

@@ -1,6 +1,6 @@
 <div class="container container-pad-top">
     
-    <div style="padding: 100px; border-radius: 10px; background-color: rgb(221, 239, 240);">
+    <div style="padding: 100px; border-radius: 10px;">
         <div class="row">
             <div class="col-12">
                 <h1>Create a Task</h1>
@@ -42,9 +42,9 @@
                     </select>
                 </div> 
                 
-                <div class="mb-3">
+                <div class="mb-3" formGroupName="taskCollection">
                     <label class="form-label">Select task collection ID</label>
-                    <input type="number" class="form-control" name="taskCollection" id="taskCollection" formControlName="taskCollection" >
+                    <input type="number" class="form-control" name="id" id="id" formControlName="id" >
                 </div> 
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

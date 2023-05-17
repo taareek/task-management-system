@@ -10,7 +10,8 @@ export class AppComponent {
   title = 'frontend';
   userEdit = faUserEdit;
   // screenWidth!:number;
-  showSideNav = true;
+  // if it is true then it will use side navbar
+  showSideNav = false;
   constructor(){
     // this.screenWidth = window.innerWidth;
     // window.onresize = ()=>{

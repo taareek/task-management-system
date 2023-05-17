@@ -4,6 +4,7 @@ import com.example.taskmanagement.dto.TaskLogDTO;
 import com.example.taskmanagement.entity.TaskLog;
 import org.springframework.stereotype.Component;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,7 +14,7 @@ public class TaskLogMapper {
         TaskLogDTO taskLogDTO = new TaskLogDTO();
         taskLogDTO.setId(taskLog.getId());
         taskLogDTO.setSpentTime(taskLog.getSpentTime());
-        taskLogDTO.setLogDate(taskLog.getLogDate());
+        taskLogDTO.setLogDate(Instant.now());
         taskLogDTO.setLogNote(taskLog.getLogNote());
         taskLogDTO.setTask(taskLog.getTask());
         return taskLogDTO;
@@ -23,7 +24,7 @@ public class TaskLogMapper {
         TaskLog taskLog = new TaskLog();
         taskLog.setId(taskLogDTO.getId());
         taskLog.setSpentTime(taskLogDTO.getSpentTime());
-        taskLog.setLogDate(taskLogDTO.getLogDate());
+        taskLog.setLogDate(Instant.now());
         taskLog.setLogNote(taskLogDTO.getLogNote());
         taskLog.setTask(taskLogDTO.getTask());
         return taskLog;
