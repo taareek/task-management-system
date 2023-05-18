@@ -5,15 +5,22 @@
             <form name="createTaskLogForm" [formGroup]="createTaskLogForm" (ngSubmit)="createTaskLog()">
                 <div class="mb-3">
                     <label class="form-label">Enter spent time</label>
-                    <input type="text" class="form-control" name="spentTime" id="spentTime" formControlName="spentTime" >
+                    <input type="number" class="form-control" name="spentTime" id="spentTime" formControlName="spentTime" >
                 </div> 
                 <div class="mb-3">
                     <label class="form-label">Enter note(what steps you have taken)</label>
                     <input type="text" class="form-control" name="logNote" id="logNote" formControlName="logNote" >
                 </div> 
                 <div class="mb-3" formGroupName="task">
-                    <label class="form-label">Task ID</label>
-                    <input type="number" class="form-control" name="id" id="id" formControlName="id" >
+                    <!-- <input type="number" class="form-control" name="id" id="id" formControlName="id" > -->
+                    <label class="form-label">Select task</label>
+                    <br>
+                    <select name="form-select form-control" formControlName="id" id="id" name="id">
+                    <option value="" disabled selected>Select task</option>
+                    <option *ngFor="let task of allTasks" [value]="task.id">
+                      {{ task.taskName }}
+                    </option>
+                    </select>
                 </div> 
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

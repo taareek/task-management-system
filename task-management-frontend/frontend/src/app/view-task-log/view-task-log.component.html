@@ -1,0 +1,58 @@
+<div class="container mt-4 mb-4">
+    <!-- page header -->
+    <div class="row header-card mb-3">
+        <div class="card w-100">
+            <div class="card-body">
+                <h2 class="card-title">Task Logs</h2>
+                <hr>
+                <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group" role="group" aria-label="First group">
+                      <button type="button" class="btn btn-primary" (click)="addTaskLog();">
+                        <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+                        task log
+                      </button>
+                      
+                    </div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="log by task name.."> 
+                        <span class="input-group-btn input-space">
+                            <button class="btn btn-secondary" type="button">
+                                <fa-icon [icon]="['fas', 'search']"></fa-icon>
+                                search
+                            </button>
+                       </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- page header end -->
+    <!-- inserting log data into card -->
+    <div class="row" *ngFor="let taskLog of allTaskLogsData">
+        <div class="card w-100 mt-1 mb-1">
+            <div class="card-body">
+                <!-- title -->
+                <div class="row card-title">
+                    <div class="col-8">
+                        <h4>Corresponding task: {{taskLog.task.taskName}}</h4>
+                        <p><i>Spent time: {{taskLog.spentTime}} hours</i></p>
+                    </div>
+                    <div class="col-4 text-end">
+                        <span class="icon-padding"><button class="button-solid view-icon"> <fa-icon [icon]="['fas', 'eye']"></fa-icon></button></span>
+                    <span class="icon-padding"><button class="button-solid edit-icon"> <fa-icon [icon]="['fas', 'pen']"></fa-icon></button></span>
+                    <span class="icon-padding"><button class="button-solid delete-icon"> <fa-icon [icon]="['fas', 'trash']"></fa-icon></button></span>            
+                    </div>
+                </div>
+                <!-- body-text -->
+                <div class="row">
+                    <h4 class="card-text">
+                        Log note: {{taskLog.logNote}}
+                    </h4> 
+                    <footer class="blockquote-footer"><cite title="Created at">
+                        Updated at: {{taskLog.logDate}}                      
+                    </cite></footer> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

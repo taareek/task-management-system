@@ -15,6 +15,10 @@ export class TaskLogServiceService {
     return this.httpClient.post<any>(`${this.postUrl}`, taskLog);
   }
   // get
+  getUrl = "http://localhost:8090/api/tasks/logs/all-logs"
+  public getAllTaskLog(): Observable<TaskLog[]>{
+      return this.httpClient.get<TaskLog[]>(`${this.getUrl}`);
+  }
   // update
   // delete
 }

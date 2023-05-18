@@ -32,6 +32,9 @@ import { TaskCollectionComponent } from './task-collection/task-collection.compo
 import { CreatTaskComponent } from './creat-task/creat-task.component';
 import { CreateTaskLogComponent } from './create-task-log/create-task-log.component';
 import { ViewTasksComponent } from './view-tasks/view-tasks.component';
+import {ViewTaskLogComponent } from './view-task-log/view-task-log.component'
+import { UpdateTaskComponent } from './update-task/update-task.component';
+
 
 @NgModule({
   declarations: [
@@ -46,6 +49,8 @@ import { ViewTasksComponent } from './view-tasks/view-tasks.component';
     CreatTaskComponent,
     CreateTaskLogComponent,
     ViewTasksComponent,
+    ViewTaskLogComponent,
+    UpdateTaskComponent
   ],
   imports: [
     BrowserModule,

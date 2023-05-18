@@ -25,7 +25,7 @@ public class Task {
     @Column(name="created_at")
     private Instant createdAt;
     @Column(name="due_date")
-    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+//    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dueDate;
     @Column(name="expected_time")
     private Double expectedTime;

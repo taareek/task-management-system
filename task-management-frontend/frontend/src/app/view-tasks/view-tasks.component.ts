@@ -15,10 +15,8 @@ export class ViewTasksComponent implements OnInit{
   allTasks!:Task[];
 
   constructor(
-    private http: HttpClient,
     private router: Router,
     private appComponent: AppComponent,
-    private route: ActivatedRoute,
     private taskService: TaskService
   ){}
 
@@ -38,5 +36,9 @@ export class ViewTasksComponent implements OnInit{
   }
   addTask(){
     this.router.navigate(["create-task"]);
+  }
+
+  updateTask(id:any){
+    this.router.navigate(["update-task/"+id])
   }
 }

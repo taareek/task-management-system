@@ -60,7 +60,29 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public Task searchTaskById(long id) {
-        return null;
+    public TaskDTO updateTask(TaskDTO taskDTO) {
+//        Task toBeUpdated = taskMapper.mapTaskDtoToEntity(taskDTO);
+        long taskId = taskDTO.getId();
+        Task toBeUpdated = taskRepo.findById(taskId).
+                orElseThrow(() -> new EntityNotFoundException("Task not found"));
+
+        toBeUpdated.setTaskName(taskDTO.getTaskName());
+        toBeUpdated.setDescription(taskDTO.getDescription());
+        toBeUpdated.setCreatedAt(taskDTO.getCreatedAt());
+        toBeUpdated.setDueDate(taskDTO.getDueDate());
+        toBeUpdated.setExpectedTime(taskDTO.getExpectedTime());
+        toBeUpdated.setTaskPriorityLevel(taskDTO.getTaskPriorityLevel());
+        toBeUpdated.setHasReminder(taskDTO.getHasReminder());
+        toBeUpdated.setTaskStatus(taskDTO.getTaskStatus());
+        toBeUpdated.setTaskCollection(taskDTO.getTaskCollection());
+        Task updatedTask = taskRepo.save(toBeUpdated);
+        return taskMapper.mapTaskEntityToDto(updatedTask);
+    }
+
+    @Override
+    public TaskDTO searchTaskById(long id) {
+        Task providedTask = taskRepo.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Task not found for the ID: " + id));
+        return taskMapper.mapTaskEntityToDto(providedTask);
     }
 }

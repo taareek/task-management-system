@@ -8,6 +8,8 @@ import { CreatTaskComponent } from './creat-task/creat-task.component';
 import { CreateTaskLogComponent } from './create-task-log/create-task-log.component';
 import { TaskCollectionComponent } from './task-collection/task-collection.component';
 import { ViewTasksComponent } from './view-tasks/view-tasks.component';
+import { ViewTaskLogComponent } from './view-task-log/view-task-log.component';
+import { UpdateTaskComponent } from './update-task/update-task.component';
 
 
 const routes: Routes = [
@@ -22,7 +24,9 @@ const routes: Routes = [
   },
   {path: 'create-task-log', component: CreateTaskLogComponent},
   {path: 'task-collection', component:TaskCollectionComponent},
-  {path: 'view-tasks', component:ViewTasksComponent}
+  {path: 'view-tasks', component:ViewTasksComponent},
+  {path: 'view-task-logs', component:ViewTaskLogComponent},
+  {path: 'update-task/:id', component:UpdateTaskComponent}
 ];
 
 @NgModule({

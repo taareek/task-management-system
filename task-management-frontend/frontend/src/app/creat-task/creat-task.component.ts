@@ -8,7 +8,7 @@ import { Task } from '../task';
 // import { taskStatus } from '../enums/task-status.model';
 import { TaskCollection } from '../task-collection';
 import { TaskService } from '../task.service';
-import { getLocaleDateFormat } from '@angular/common';
+import { TaskCollectionService } from '../task-collection.service';
 
 
 
@@ -35,6 +35,8 @@ export class CreatTaskComponent implements OnInit{
     }
     ),
   })
+  // taskCollectionService: any;
+  allTaskCollection: any;
 
   constructor(
     private fb:FormBuilder,
@@ -42,20 +44,26 @@ export class CreatTaskComponent implements OnInit{
       private router: Router,
       private appComponent: AppComponent,
       private taskService: TaskService,
+      private taskCollectionService: TaskCollectionService
       
   ){}
-  // trying to pass drop-down list values as enums
-  // public TaskPriorityLevelToLabel = TaskPriorityLevelToLabel;
-  // public priorityLabels = Object.values(TaskPriorityLevel);
-  // priorityLevels: TaskPriorityLevel[] = [];
+
   task: Task = new Task();
 
   ngOnInit(): void {
     this.appComponent.showSideNav = false;
-    // this.priorityLevels = Object.values(TaskPriorityLevel);
-    // console.log(typeof(this.priorityLevels))
-    // console.log(this.priorityLevels)  
+    this.getAllTaskCollections(); 
   }
+
+  getAllTaskCollections(){
+    this.taskCollectionService.getAllTask().subscribe(
+      (taskCollections: any )=> {
+        this.allTaskCollection = taskCollections;
+        // console.log(this.allTaskCollection)
+      })
+  }
+
+  
 
   createTask(){
     console.log(this.createTaskForm.value);

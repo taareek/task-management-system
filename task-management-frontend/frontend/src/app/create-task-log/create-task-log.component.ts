@@ -5,6 +5,8 @@ import { AppComponent } from '../app.component';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder } from '@angular/forms';
 import { TaskLog } from '../task-log';
+import { TaskService } from '../task.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-task-log',
@@ -23,15 +25,27 @@ export class CreateTaskLogComponent implements OnInit{
     }
     ),
   })  
+
+  allTasks: any;
+
   constructor(
     private fb:FormBuilder,
-    private http:HttpClient,
     private appComponent: AppComponent,
-    private taskLogService: TaskLogServiceService
+    private taskLogService: TaskLogServiceService,
+    private taskService: TaskService,
+    private router: Router,
   ){}
   taskLog : TaskLog = new TaskLog();
   ngOnInit(): void {
+    this.getAllTasks();
+  }
 
+  getAllTasks(){
+    this.taskService.getAlltasks().subscribe(
+      (taskCollections: any )=> {
+        this.allTasks = taskCollections;
+        console.log(this.allTasks)
+      })
   }
 
   createTaskLog(){
@@ -42,8 +56,9 @@ export class CreateTaskLogComponent implements OnInit{
     }else{
       this.taskLogService.createTaskLog(this.taskLog).subscribe(
         (taskLogData: any)=>{
-          alert("task log created!")
+          // alert("task log created!")
           this.createTaskLogForm.reset();
+          this.router.navigate(["view-task-logs"]);
         }
       )
     }
