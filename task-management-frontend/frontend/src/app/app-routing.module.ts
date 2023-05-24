@@ -10,6 +10,8 @@ import { TaskCollectionComponent } from './task-collection/task-collection.compo
 import { ViewTasksComponent } from './view-tasks/view-tasks.component';
 import { ViewTaskLogComponent } from './view-task-log/view-task-log.component';
 import { UpdateTaskComponent } from './update-task/update-task.component';
+import { DemoJsonForms } from './demo-json-forms/demo-json-forms.component';
+import { UpdateTaskLogsComponent } from './update-task-logs/update-task-logs.component';
 
 
 const routes: Routes = [
@@ -26,7 +28,9 @@ const routes: Routes = [
   {path: 'task-collection', component:TaskCollectionComponent},
   {path: 'view-tasks', component:ViewTasksComponent},
   {path: 'view-task-logs', component:ViewTaskLogComponent},
-  {path: 'update-task/:id', component:UpdateTaskComponent}
+  {path: 'update-task/:id', component:UpdateTaskComponent},
+  {path: 'json-forms', component:DemoJsonForms},
+  {path: 'update-task-logs/:id', component:UpdateTaskLogsComponent}
 ];
 
 @NgModule({

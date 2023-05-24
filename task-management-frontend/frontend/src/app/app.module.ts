@@ -34,6 +34,8 @@ import { CreateTaskLogComponent } from './create-task-log/create-task-log.compon
 import { ViewTasksComponent } from './view-tasks/view-tasks.component';
 import {ViewTaskLogComponent } from './view-task-log/view-task-log.component'
 import { UpdateTaskComponent } from './update-task/update-task.component';
+import { DemoJsonForms } from './demo-json-forms/demo-json-forms.component';
+import { UpdateTaskLogsComponent } from './update-task-logs/update-task-logs.component';
 
 
 @NgModule({
@@ -50,7 +52,9 @@ import { UpdateTaskComponent } from './update-task/update-task.component';
     CreateTaskLogComponent,
     ViewTasksComponent,
     ViewTaskLogComponent,
-    UpdateTaskComponent
+    UpdateTaskComponent,
+    DemoJsonForms,
+    UpdateTaskLogsComponent
   ],
   imports: [
     BrowserModule,

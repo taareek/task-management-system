@@ -9,6 +9,6 @@ public interface TaskLogService {
     List<TaskLogDTO> getAllTaskLog();
     void deleteTaskLog(long id);
     TaskLogDTO updateTaskLogById(TaskLogDTO taskLogDTO, long id);
-    TaskLogDTO searchByName(String name);
+    TaskLogDTO searchById(long id);
 
 }
