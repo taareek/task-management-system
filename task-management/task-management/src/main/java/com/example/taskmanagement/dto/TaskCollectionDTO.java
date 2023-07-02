@@ -2,18 +2,21 @@ package com.example.taskmanagement.dto;
 
 import com.example.taskmanagement.entity.Task;
 
+import java.time.Instant;
 import java.util.List;
 
 public class TaskCollectionDTO {
     private Long id;
     private String taskCollectionName;
+    private Instant createdAt;
 //    private List<Task> tasks;
 
     public TaskCollectionDTO() {}
 
-    public TaskCollectionDTO(Long id, String taskCollectionName) {
+    public TaskCollectionDTO(Long id, String taskCollectionName, Instant createdAt) {
         this.id = id;
         this.taskCollectionName = taskCollectionName;
+        this.createdAt = createdAt;
     }
 
     public Long getId() {
@@ -32,7 +35,15 @@ public class TaskCollectionDTO {
         this.taskCollectionName = taskCollectionName;
     }
 
-//    public List<Task> getTasks() {
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    //    public List<Task> getTasks() {
 //        return tasks;
 //    }
 
@@ -40,11 +51,13 @@ public class TaskCollectionDTO {
 //        this.tasks = tasks;
 //    }
 
+
     @Override
     public String toString() {
         return "TaskCollectionDTO{" +
                 "id=" + id +
                 ", taskCollectionName='" + taskCollectionName + '\'' +
+                ", createdAt=" + createdAt +
                 '}';
     }
 }

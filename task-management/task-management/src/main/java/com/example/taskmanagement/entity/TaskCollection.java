@@ -3,6 +3,7 @@ package com.example.taskmanagement.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.time.Instant;
 import java.util.List;
 
 @Entity
@@ -14,6 +15,9 @@ public class TaskCollection {
     @Column(name="task_cln_name")
     private String taskCollectionName;
 
+    @Column(name="created_at")
+    private Instant createdAt;
+
     // a task collection may have one or more tasks
     @JsonIgnore
     @OneToMany(mappedBy = "taskCollection", cascade = CascadeType.ALL)
@@ -21,9 +25,10 @@ public class TaskCollection {
 
     public TaskCollection() {}
 
-    public TaskCollection(Long id, String taskCollectionName, List<Task> tasks) {
+    public TaskCollection(Long id, String taskCollectionName, Instant createdAt, List<Task> tasks) {
         this.id = id;
         this.taskCollectionName = taskCollectionName;
+        this.createdAt = createdAt;
         this.tasks = tasks;
     }
 
@@ -43,6 +48,14 @@ public class TaskCollection {
         this.taskCollectionName = taskCollectionName;
     }
 
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
+    }
+
     public List<Task> getTasks() {
         return tasks;
     }
@@ -56,6 +69,7 @@ public class TaskCollection {
         return "TaskCollection{" +
                 "id=" + id +
                 ", taskCollectionName='" + taskCollectionName + '\'' +
+                ", createdAt=" + createdAt +
                 ", tasks=" + tasks +
                 '}';
     }

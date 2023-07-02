@@ -6,6 +6,7 @@ import com.example.taskmanagement.mapper.TaskMapper;
 import com.example.taskmanagement.repo.TaskRepo;
 import com.example.taskmanagement.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -31,7 +32,8 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public List<TaskDTO> getAllTask() {
-        List<Task> tasks = taskRepo.findAll();
+        List<Task> tasks = taskRepo.findAll(Sort.by(Sort.Direction.DESC, "createdAt"));
+//        is there any way to sort all tasks by date here ?
         return taskMapper.mapTaskEntityListToTaskDtoList(tasks);
     }
 

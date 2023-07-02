@@ -6,6 +6,7 @@ import com.example.taskmanagement.mapper.TaskLogMapper;
 import com.example.taskmanagement.repo.TaskLogRepo;
 import com.example.taskmanagement.service.TaskLogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -31,7 +32,7 @@ public class TaskLogServiceImpl implements TaskLogService {
 
     @Override
     public List<TaskLogDTO> getAllTaskLog() {
-        List<TaskLog> taskLogs = taskLogRepo.findAll();
+        List<TaskLog> taskLogs = taskLogRepo.findAll(Sort.by(Sort.Direction.DESC, "logDate"));
         return taskLogMapper.mapTaskLogEntityListToTaskLogDtoList(taskLogs);
     }
 

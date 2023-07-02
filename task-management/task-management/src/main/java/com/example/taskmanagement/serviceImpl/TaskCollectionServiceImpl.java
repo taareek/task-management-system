@@ -6,6 +6,7 @@ import com.example.taskmanagement.mapper.TaskCollectionMapper;
 import com.example.taskmanagement.repo.TaskCollectionRepo;
 import com.example.taskmanagement.service.TaskCollectionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,7 +33,7 @@ public class TaskCollectionServiceImpl implements TaskCollectionService {
 
     @Override
     public List<TaskCollectionDTO> getAllTaskCollection(){
-        List<TaskCollection> taskCollections = taskCollectionRepo.findAll();
+        List<TaskCollection> taskCollections = taskCollectionRepo.findAll(Sort.by(Sort.Direction.DESC, "createdAt"));
         return taskCollections.stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
