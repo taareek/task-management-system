@@ -35,4 +35,8 @@ export class ViewTaskLogComponent implements OnInit{
   addTaskLog(){
     this.router.navigate(['create-task-log']);
   }
+
+  updateTaskLog(id:any){
+    this.router.navigate(["update-task-logs/"+id])
+  }
 }

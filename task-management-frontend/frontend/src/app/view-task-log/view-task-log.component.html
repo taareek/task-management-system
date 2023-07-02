@@ -39,7 +39,7 @@
                     </div>
                     <div class="col-4 text-end">
                         <span class="icon-padding"><button class="button-solid view-icon"> <fa-icon [icon]="['fas', 'eye']"></fa-icon></button></span>
-                    <span class="icon-padding"><button class="button-solid edit-icon"> <fa-icon [icon]="['fas', 'pen']"></fa-icon></button></span>
+                    <span class="icon-padding"><button class="button-solid edit-icon" (click)="updateTaskLog(taskLog.id)"> <fa-icon [icon]="['fas', 'pen']"></fa-icon></button></span>
                     <span class="icon-padding"><button class="button-solid delete-icon"> <fa-icon [icon]="['fas', 'trash']"></fa-icon></button></span>            
                     </div>
                 </div>

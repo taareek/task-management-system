@@ -1,6 +1,7 @@
 package com.example.taskmanagement.serviceImpl;
 
 import com.example.taskmanagement.dto.TaskLogDTO;
+import com.example.taskmanagement.entity.Task;
 import com.example.taskmanagement.entity.TaskLog;
 import com.example.taskmanagement.mapper.TaskLogMapper;
 import com.example.taskmanagement.repo.TaskLogRepo;
@@ -10,6 +11,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import java.time.Instant;
 import java.util.List;
 
 @Service
@@ -49,7 +51,7 @@ public class TaskLogServiceImpl implements TaskLogService {
         providedTaskLog.setId(taskLogDTO.getId());
         providedTaskLog.setSpentTime(taskLogDTO.getSpentTime());
         providedTaskLog.setLogNote(taskLogDTO.getLogNote());
-        providedTaskLog.setLogDate(taskLogDTO.getLogDate());
+        providedTaskLog.setLogDate(Instant.now());
         providedTaskLog.setTask(taskLogDTO.getTask());
 
         TaskLog updatedTaskLog = taskLogRepo.save(providedTaskLog);
@@ -57,7 +59,10 @@ public class TaskLogServiceImpl implements TaskLogService {
     }
 
     @Override
-    public TaskLogDTO searchByName(String name) {
-        return null;
+    public TaskLogDTO searchById(long id)
+    {
+        TaskLog providedTaskLog = taskLogRepo.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Task not found for the ID: " + id));
+        return taskLogMapper.mapTaskLogEntityToDto(providedTaskLog);
     }
 }

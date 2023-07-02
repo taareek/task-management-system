@@ -1,7 +1,7 @@
 # task-management-system
 Task Management System (TO-DO)
 
-***Dependencies for this projec are as follows:***
+***Dependencies for this project are as follows:***
 > Angular CLI: 15.2.2 <br>
 > Node: 18.15.0 <br>
 > Package Manager: npm 9.6.4 <br>
